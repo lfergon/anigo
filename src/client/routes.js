@@ -11,9 +11,14 @@ Router.map(function () {
     path: '/incidents',
     template: 'incidents',
     waitOn: function () {
-      return [this.subscribe('incidents', function () {
-        console.log('Subscribe to incidents: ' +Incidents.find().count());
-      })];
+      return [
+        this.subscribe('incidents', function () {
+          Log.warn('Subscribe to incidents: ' +Incidents.find().count());
+        }),
+        this.subscribe('buildings', function () {
+          Log.warn('Subscribe to buildings: ' +Buildings.find().count());
+        })
+      ];
     }
   }),
   this.route('drones', {
