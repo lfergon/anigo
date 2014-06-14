@@ -2,6 +2,7 @@
   "packages": {
     "moment": {},
     "scss": {},
-    "iron-router": {}
+    "iron-router": {},
+    "highcharts": {}
   }
 }
