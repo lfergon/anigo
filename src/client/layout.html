@@ -1,0 +1,47 @@
+<head>
+<title>ANIGO - Solar Panel monitoring solution</title>
+  <meta name="description" content="ANIGO">
+  <meta name="language" content="english">
+  <meta http-equiv="content-language" content="en">
+  <meta charset="utf-8" />
+  <link type="text/plain" rel="author" href="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="400">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">-->
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
+
+</head>
+<body>
+</body>
+
+
+<template name='layout'>
+	<noscript>
+	Sorry! We require javascript.
+  </noscript>
+
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">ANIGO</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/incidences">Incidences</a></li>
+            <li><a href="/drones">Drones</a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+	<div class='container'>
+		{{> yield}}
+	</div>
+
+</template>
