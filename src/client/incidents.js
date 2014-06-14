@@ -18,11 +18,11 @@ Template.incidents.rendered = function () {
   * W3C geolocation API
   */
   if (nokia.maps.positioning.Manager) {
-  var positioning = new nokia.maps.positioning.Manager();
-  // Trigger the load of data, after the map emmits the "displayready" event
-  map.addListener("displayready", function () {
-    // Gets the current position, if available the first given callback function is executed else the second
-    positioning.getCurrentPosition(function (position) {
+    var positioning = new nokia.maps.positioning.Manager();
+    // Trigger the load of data, after the map emmits the "displayready" event
+    map.addListener("displayready", function () {
+      // Gets the current position, if available the first given callback function is executed else the second
+      positioning.getCurrentPosition(function (position) {
         var coords = position.coords, // we retrieve the longitude/latitude from position
           marker = new nokia.maps.map.StandardMarker(coords), // creates a marker
           /* Create a circle map object  on the  geographical coordinates of
@@ -47,7 +47,7 @@ Template.incidents.rendered = function () {
         else if (error.code == 3) errorMsg += "TIMEOUT";
         else errorMsg += "UNKNOWN_ERROR";
         // Throw an alert with error message
-        alert(errorMsg);
+        Log.error(errorMsg);
       });
     });
   }
