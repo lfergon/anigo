@@ -1,7 +1,8 @@
 Router.configure({
   layoutTemplate: 'layout',
-  waitOn: function () {
-  },
+    waitOn: function () {
+      
+    }
 });
  
 
