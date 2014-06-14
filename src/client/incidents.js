@@ -7,8 +7,6 @@ Template.incidents.events({
 
 Template.incidents.rendered = function () {
   var mapContainer = document.getElementById("map");
-  console.log($("#map"));
-  
   // Create a map inside the map container DOM node
   var map = new nokia.maps.map.Display(mapContainer, {
     // initial center and zoom level of the map
