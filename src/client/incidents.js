@@ -3,13 +3,27 @@ Template.incidents.events({
     if (typeof console !== 'undefined')
       console.log("You pressed the button");
   },
-  'click .createIncident': function () {
-    var incidents = [
-      {createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"},
-      {createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"},
-      {createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"},
-      {createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"}
-    ];
+  'click .createIncident': function (event) {
+    Log.warn("Creating new incident");
+    var buildings = Buildings.find({}).fetch();
+    var incidents = [];
+    buildings.forEach(function (build, index) {
+      if(index===1){
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
+      }
+      if(index===2){
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
+      }
+      if(index===3){
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
+      }
+      if(index===4){
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
+      }
+    });
+    incidents.forEach(function (incident) {
+      Incidents.insert(incident);
+    })
   }
 });
 
@@ -65,4 +79,8 @@ Template.incidents.changeMap = function () {
   Meteor.defer(function() {
     $($("#map").children()[0]).css("position", "absolute");
   });
+};
+
+Template.incidents.incident = function () {
+  return Incidents.find({}).fetch();
 };
