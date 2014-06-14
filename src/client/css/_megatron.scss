@@ -1,4 +1,11 @@
 .megatron {
   text-align: center;
-  padding: 100px;
+  padding: 150px;
+}
+
+.megatron-title {
+  font-size: 108px;
+  background: -webkit-linear-gradient(lighten($brand-primary, 10%), darken($brand-primary, 20%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

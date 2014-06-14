@@ -1,39 +1,58 @@
 <template name="incidents">
-  <h2>Incidents</h2>
-  <button class="createIncident btn btn-danger">Simulate incidents</button>
+  <h2>
+    Incidents
+    <button class="createIncident btn btn-danger">
+      Simulate incidents
+    </button>
+  </h2>
   <div class="row">
     <div class="col-md-4 incident-list">
-      <form class="form-inline" role="form">
-        <div class="form-group">
-          <label for="">Filters</label>
-          <select class="form-control">
-            <option>Type</option>
-            <option>fire</option>
-            <option>glass</option>
-            <option>output</option>
-            <option>movement</option>
-          </select>
-          <select class="form-control">
-            <option>Status</option>
-            <option>open</option>
-            <option>in progress</option>
-            <option>suspended</option>
-            <option>resolved</option>
-          </select>
-          <select class="form-control">
-            <option>Priority</option>
-            <option>low</option>
-            <option>medium</option>
-            <option>high</option>
-            <option>critical</option>
-          </select>
-        </div>
-      </form>
-      {{#each incident}}
-        <div class="alert alert-danger">
-          <p>{{this.status}}</p>
-        </div>
-      {{/each}}
+      <div class="well">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <label for="">Filters</label>
+            <select class="form-control">
+              <option>Type</option>
+              <option>fire</option>
+              <option>glass</option>
+              <option>output</option>
+              <option>movement</option>
+            </select>
+            <select class="form-control">
+              <option>Status</option>
+              <option>open</option>
+              <option>in progress</option>
+              <option>suspended</option>
+              <option>resolved</option>
+            </select>
+            <select class="form-control">
+              <option>Priority</option>
+              <option>low</option>
+              <option>medium</option>
+              <option>high</option>
+              <option>critical</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Description</th>
+          <th>Priority</th>
+          <th>Time</th>
+          <th>Scheduled</th>
+        </tr>
+        {{#each incident}}
+          <tr>
+            <td></td>
+            <td>Issue on Item at {{this.building}}</td>
+            <td></td>
+            <td>{{this.createdAt}}</td>
+            <td>{{this.scheduled}}</td>
+          </tr>
+        {{/each}}
+      </table>
     </div>
     <div class= "col-md-8 incident-detail">
       <div class="row">
