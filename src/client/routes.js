@@ -11,7 +11,7 @@ Router.map(function () {
     template: 'incidents',
     path: '/',
   }),
-  this.route('incidences', {
+  this.route('incidents', {
     path: '/incidents',
     template: 'incidents',
   }),
