@@ -1,10 +1,6 @@
 Router.configure({
-  layoutTemplate: 'layout',
-    waitOn: function () {
-
-    }
+  layoutTemplate: 'layout'
 });
-
 
 Router.map(function () {
   this.route('home', {
@@ -14,6 +10,11 @@ Router.map(function () {
   this.route('incidents', {
     path: '/incidents',
     template: 'incidents',
+    waitOn: function () {
+      return [this.subscribe('incidents', function () {
+        console.log('Subscribe to incidents: ' +Incidents.find().count());
+      })];
+    }
   }),
   this.route('drones', {
     path: '/drones',
