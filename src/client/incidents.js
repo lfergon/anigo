@@ -2,6 +2,14 @@ Template.incidents.events({
  'click input': function () {
     if (typeof console !== 'undefined')
       console.log("You pressed the button");
+  },
+  'click .createIncident': function () {
+    var incidents = [
+      {createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"},
+      {createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"},
+      {createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"},
+      {createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"}
+    ];
   }
 });
 
