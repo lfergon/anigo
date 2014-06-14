@@ -1,23 +1,23 @@
 Router.configure({
   layoutTemplate: 'layout',
     waitOn: function () {
-      
+
     }
 });
- 
+
 
 Router.map(function () {
   this.route('home', {
-    template: 'incidences',
+    template: 'incidents',
     path: '/',
-	}),
+  }),
   this.route('incidences', {
-    path: '/incidences',
-    template: 'incidences',
-	}),
+    path: '/incidents',
+    template: 'incidents',
+  }),
   this.route('drones', {
-		path: '/drones',
+    path: '/drones',
     template: 'drones',
   })
 });
- 
+
