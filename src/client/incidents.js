@@ -13,8 +13,11 @@ Template.incidents.rendered = function () {
   var map = new nokia.maps.map.Display(mapContainer, {
     // initial center and zoom level of the map
     center: [52.51, 13.4],
-    zoomLevel: 10
+    zoomLevel: 10,
+    components:[new nokia.maps.map.component.Behavior()]
   });
+  var standardMarker = new nokia.maps.map.StandardMarker(map.center);
+  map.objects.add(standardMarker);
 };
 
 Template.incidents.changeMap = function () {
