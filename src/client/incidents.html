@@ -1,35 +1,35 @@
 <template name="incidents">
   <h2>Incidents</h2>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 incident-list">
       <form class="form-inline" role="form">
         <div class="form-group">
           <label for="">Filters</label>
           <select class="form-control">
             <option>Type</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>fire</option>
+            <option>glass</option>
+            <option>output</option>
+            <option>movement</option>
           </select>
           <select class="form-control">
             <option>Status</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>open</option>
+            <option>in progress</option>
+            <option>suspended</option>
+            <option>resolved</option>
           </select>
           <select class="form-control">
             <option>Priority</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>low</option>
+            <option>medium</option>
+            <option>high</option>
+            <option>critical</option>
           </select>
         </div>
       </form>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 incident-detail">
       <div id="map" class="map map-incident">
         {{changeMap}}
       </div>
