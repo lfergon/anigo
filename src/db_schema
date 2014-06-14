@@ -1,0 +1,81 @@
+db.solars.insert({
+	"_id": ObjectId(),
+	"manufacturer": "",
+	"model": "",
+	"year_installed": "",
+	"year_produced": "",
+	"requested_tilt": "",
+	"requested_rotation": "",
+	"history": [
+		ObjectId(),
+		ObjectId()
+	],
+	"area": ObjectId()
+});
+
+db.winds.insert({
+	"_id": ObjectId(),
+	"manufacturer": "",
+	"model": "",
+	"year_installed": "",
+	"year_produced": "",
+	"requested_rotation_tower": "",
+	"requested_rotation_blades": "",
+	"history": [
+		ObjectId(),
+		ObjectId()
+	],
+	"area": ObjectId()
+});
+
+
+db.solar_histories.insert({
+	"_id": ObjectId(),
+	"timestamp": "",
+	"voltage": "",
+	"current": "",
+	"weather": "",
+	"temperature": "",
+	"tilt": "",
+	"rotation": "",
+	"device": ObjectId()
+});
+
+db.wind_histories.insert({
+	"_id": ObjectId(),
+	"timestamp": "",
+	"voltage": "",
+	"current": "",
+	"rpm": "",
+	"wind_speed": "",
+	"wind_direction": "",
+	"rotation_tower": "",
+	"rotation_blades": "",
+	"device": ObjectId()
+});
+
+db.owners.insert({
+	"_id": ObjectId(),
+	"name": "",
+	"address": "",
+	"phone": "",
+	"e-mail": "",
+	"contact_person": ""
+});
+
+db.areas.insert({
+	"_id": ObjectId(),
+	"location": "",
+	"name": "",
+	"owner": ObjectId(),
+	"drones_allowed": "",
+	"drone_times": "",
+	"solar": [
+		ObjectId(),
+		ObjectId()
+	],
+	"wind": [
+		ObjectId(),
+		ObjectId()
+	]
+});
