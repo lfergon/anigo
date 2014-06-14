@@ -2,16 +2,37 @@
   <h2>Incidents</h2>
   <div class="row">
     <div class="col-md-4">
-      <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
-      </ul>
-  </div>
-  <div class="col-md-8">
-    <div id="map" style="min-width: 97%; min-height: 700px; position: absolute;">
-      {{changeMap}}
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <label for="">Filters</label>
+          <select class="form-control">
+            <option>Type</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <select class="form-control">
+            <option>Status</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <select class="form-control">
+            <option>Priority</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </form>
     </div>
-  </div>
+    <div class="col-md-8">
+      <div id="map" class="map map-incident">
+        {{changeMap}}
+      </div>
+    </div>
   </div>
 </template>
