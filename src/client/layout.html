@@ -33,13 +33,6 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="/">ANIGO</a>
       </div>
       <div class="navbar-collapse collapse">
@@ -47,11 +40,33 @@
           <li class='{{isActive 'incidents'}}'><a href="/incidents">Incidents</a></li>
           <li class='{{isActive 'drones'}}'><a href="/drones">Drones</a></li>
         </ul>
-        <div class="navbar-right">
-          <p class="navbar-text">
-            Signed in as John
-          </p>
-        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+          <li class="dropdown">
+            <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="images/avatar.gif" alt="" class="img-rounded avatar">
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/fat">
+                  <span class="glyphicon glyphicon-user"></span>
+                  My Profile</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/fat">
+                  <span class="glyphicon glyphicon-cog"></span>
+                  Settings</a>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="http://twitter.com/fat">
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
