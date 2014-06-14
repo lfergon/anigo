@@ -54,8 +54,22 @@ db.wind_histories.insert({
 	"device": ObjectId()
 });
 
+db.owners.insert({
+	"_id": ObjectId(),
+	"name": "",
+	"address": "",
+	"phone": "",
+	"e-mail": "",
+	"contact_person": ""
+});
+
 db.areas.insert({
 	"_id": ObjectId(),
+	"location": "",
+	"name": "",
+	"owner": ObjectId(),
+	"drones_allowed": "",
+	"drone_times": "",
 	"solar": [
 		ObjectId(),
 		ObjectId()
