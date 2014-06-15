@@ -36,7 +36,7 @@ Template.incidents.events({
         '#000'
       ],
       xAxis: {
-        categories: ['28.05.2014', '29.05.2014', '30.05.2014', '01.06.2014', '02.06.2014', '03.06.2014', '04.06.2014']
+        categories: ['28.05', '29.05.2014', '30.05.2014', '01.06.2014', '02.06.2014', '03.06.2014', '04.06.2014']
       },
       yAxis: {
         min: 0,
@@ -165,7 +165,11 @@ Template.incidents.rendered = function () {
       });
     });
   }
+
   $("#dataCharts").highcharts({
+    legend: {
+      enabled: false
+    },
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
@@ -174,14 +178,14 @@ Template.incidents.rendered = function () {
       type: 'column'
     },
     title: {
-      text: 'Luminosity last 7 days',
+      text: 'Luminosity (last 7d)',
       color: 'black',
     },
     colors: [
-      '#000'
+      '#ff6600'
     ],
     xAxis: {
-      categories: ['28.05.2014', '29.05.2014', '30.05.2014', '01.06.2014', '02.06.2014', '03.06.2014', '04.06.2014']
+      categories: ['28.05', '29.05', '30.05', '01.06', '02.06', '03.06', '04.06']
     },
     yAxis: {
       min: 0,
@@ -195,12 +199,13 @@ Template.incidents.rendered = function () {
     },
     series: [{
       name: 'Luminosity',
-      data: [27, 25, 25, 56, 32, 22, 33]
+      data: [27, 25, 25, 45, 32, 22, 33]
     }]
   });
+
   $('#mapEurope').highcharts({
     title: {
-      text: 'Monthly Average Temperature',
+      text: 'Temperature (monthly avg)',
       x: -20 //center
     },
     xAxis: {
@@ -242,6 +247,7 @@ Template.incidents.rendered = function () {
       data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
     }]
 });
+
   $('#chartLive').highcharts({
     chart: {
       type: 'spline',
@@ -261,7 +267,7 @@ Template.incidents.rendered = function () {
       }
     },
     title: {
-      text: 'Live data from Cisco (Voltage)'
+      text: 'Voltage (live)'
     },
     xAxis: {
       type: 'datetime',

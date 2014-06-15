@@ -84,13 +84,22 @@
       <hr>
       <div class="row">
         {{#if showInfoBuilding}}
+          <div class="col-md-4">
+            <p>Description: {{showInfoBuilding.description}}</p>
+          </div>
           <div class="col-md-8">
-            <div class="alert alert-info">
-              <p>Address of house: {{showInfoBuilding.neighboorhood}}</p>
-              <p>Contact: {{showInfoBuilding.contact}}</p>
-              <p>Email: {{showInfoBuilding.email}}</p>
-              <p>Phone: {{showInfoBuilding.phone}}</p>
-              <p>Description: {{showInfoBuilding.description}}</p>
+            <div class="row well">
+              <div class="col-md-6">
+                <p>Address of house: {{showInfoBuilding.neighboorhood}}</p>
+                <p>Contact: {{showInfoBuilding.contact}}</p>
+                <p>Email: {{showInfoBuilding.email}}</p>
+                <p>Phone: {{showInfoBuilding.phone}}</p>
+              </div>
+              <div class="col-md-6">
+                <div id="map" class="map map-incident">
+                  {{changeMap}}
+                </div>
+              </div>
             </div>
           </div>
         {{else}}
@@ -98,11 +107,6 @@
             <div class="alert alert-danger">Incident not selected</div>
           </div>
         {{/if}}
-        <div class="col-md-4">
-          <div id="map" class="map map-incident">
-            {{changeMap}}
-          </div>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -119,6 +123,10 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-right">
+            <button class="dispatch-eyes btn btn-lg btn-default" data-toggle="modal"
+                data-target=".modal-dispatch-eyes">
+              Dispatch Technician
+            </button>
             <button class="dispatch-eyes btn btn-lg btn-primary" data-toggle="modal"
                 data-target=".modal-dispatch-eyes">
               Dispatch Eyes
@@ -139,8 +147,10 @@
           </h4>
         </div>
         <div class="modal-body">
-          <p>Some details here.</p>
-          <p>Schedule link, etc.</p>
+          <p>Ari #55 will arrive at 13.10. You will be notified</p>
+          <p>
+            <a href="#">Alter the schedule</a>
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">OK</button>
