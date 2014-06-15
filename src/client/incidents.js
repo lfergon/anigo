@@ -5,16 +5,16 @@ Template.incidents.events({
     var incidents = [];
     buildings.forEach(function (build, index) {
       if(index===1){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
+        incidents.push({position:1, building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
       }
       if(index===2){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
+        incidents.push({position: 2, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
       }
       if(index===3){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
+        incidents.push({position: 3, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
       }
       if(index===4){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
+        incidents.push({position: 4, building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
       }
     });
     incidents.forEach(function (incident) {

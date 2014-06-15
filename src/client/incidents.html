@@ -48,7 +48,7 @@
         <tbody>
           {{#each incident}}
             <tr class="choosenBuilding" id="{{this.building}}">
-              <td></td>
+              <td>{{this.position}}</td>
               <td>Issue on Item at {{loadInfoBuilding this.building}}</td>
               <td>
                 <span class="glyphicon glyphicon-warning-sign {{priorityColour this.priority}}"></span>
