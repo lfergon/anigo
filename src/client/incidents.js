@@ -25,6 +25,39 @@ Template.incidents.events({
     var idBuilding = $(event.target).closest('tr').attr('id');
     var buildingSelected = Buildings.findOne({_id: idBuilding});
     Session.set("building", buildingSelected);
+    $("#dataCharts").highcharts({
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: true,
+        backgroundColor:'rgba(255, 255, 255, 0.1)',
+        type: 'column'
+      },
+      title: {
+        text: '',
+        color: 'black',
+      },
+      colors: [
+        '#000'
+      ],
+      xAxis: {
+        categories: ['28.05.2014', '29.05.2014', '30.05.2014', '01.06.2014', '02.06.2014', '03.06.2014', '04.06.2014']
+      },
+      yAxis: {
+        min: 0,
+        title: false
+      },
+      credits: {
+        enabled: false
+      },
+      exporting: {
+        enabled: false
+      },
+      series: [{
+        name: 'Temperature',
+        data: buildingSelected.temperature
+      }]
+    });
   }
 });
 
