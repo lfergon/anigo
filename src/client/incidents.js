@@ -5,16 +5,16 @@ Template.incidents.events({
     var incidents = [];
     buildings.forEach(function (build, index) {
       if(index===1){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
+        incidents.push({position:1, building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
       }
       if(index===2){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
+        incidents.push({position: 2, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
       }
       if(index===3){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
+        incidents.push({position: 3, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
       }
       if(index===4){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
+        incidents.push({position: 4, building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
       }
     });
     incidents.forEach(function (incident) {
@@ -25,6 +25,39 @@ Template.incidents.events({
     var idBuilding = $(event.target).closest('tr').attr('id');
     var buildingSelected = Buildings.findOne({_id: idBuilding});
     Session.set("building", buildingSelected);
+    $("#dataCharts").highcharts({
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: true,
+        backgroundColor:'rgba(255, 255, 255, 0.1)',
+        type: 'column'
+      },
+      title: {
+        text: '',
+        color: 'black',
+      },
+      colors: [
+        '#000'
+      ],
+      xAxis: {
+        categories: ['28.05.2014', '29.05.2014', '30.05.2014', '01.06.2014', '02.06.2014', '03.06.2014', '04.06.2014']
+      },
+      yAxis: {
+        min: 0,
+        title: false
+      },
+      credits: {
+        enabled: false
+      },
+      exporting: {
+        enabled: false
+      },
+      series: [{
+        name: 'Temperature',
+        data: buildingSelected.temperature
+      }]
+    });
   }
 });
 
@@ -198,6 +231,9 @@ Template.incidents.rendered = function () {
         color: '#808080'
       }]
     },
+    credits: {
+      enabled: false
+    },
     tooltip: {
       formatter: function() {
         return '<b>'+ this.series.name +'</b><br/>'+
@@ -212,7 +248,7 @@ Template.incidents.rendered = function () {
       enabled: false
     },
     series: [{
-      name: 'Random data',
+      name: 'Sensor data at the moment',
       data: (function() {
         // generate an array of random data
         var data = [], time = (new Date()).getTime(), i;
