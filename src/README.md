@@ -1,2 +1,2 @@
 ## Install packages ##
-  $> ./ANIGO_run.sh 
+  $> ./run.sh
