@@ -1,8 +1,4 @@
 Template.incidents.events({
- 'click input': function () {
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
-  },
   'click .createIncident': function (event) {
     Log.warn("Creating new incident");
     var buildings = Buildings.find({}).fetch();
@@ -23,7 +19,7 @@ Template.incidents.events({
     });
     incidents.forEach(function (incident) {
       Incidents.insert(incident);
-    })
+    });
   },
   'click .choosenBuilding': function (event) {
     var idBuilding = $(event.target).closest('tr').attr('id');
@@ -65,18 +61,18 @@ Template.incidents.rendered = function () {
            * provided position with a radius in meters of the accuracy of the position
            */
           accuracyCircle = new nokia.maps.map.Circle(coords, coords.accuracy);
-        
+
         // Add the circle and marker to the map's object collection so they will be rendered onto the map.
         map.objects.addAll([accuracyCircle, marker]);
         /* This method zooms the map to ensure that the bounding box calculated from the size of the circle
-         * shape is visible in its entirety in map's viewport. 
+         * shape is visible in its entirety in map's viewport.
          */
         map.zoomTo(accuracyCircle.getBoundingBox(), false, "default");
-      }, 
+      },
       // Something went wrong we wee unable to retrieve the GPS location
       function (error) {
         var errorMsg = "Location could not be determined: ";
-        
+
         // We determine what caused the error and generate error message
         if (error.code == 1) errorMsg += "PERMISSION_DENIED";
         else if (error.code == 2) errorMsg += "POSITION_UNAVAILABLE";
