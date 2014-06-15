@@ -24,8 +24,22 @@ Template.incidents.events({
     incidents.forEach(function (incident) {
       Incidents.insert(incident);
     })
+  },
+  'click .choosenBuilding': function (event) {
+    var idBuilding = $(event.target).closest('tr').attr('id');
+    var buildingSelected = Buildings.findOne({_id: idBuilding});
+    Session.set("building", buildingSelected);
   }
 });
+
+Session.set("building", undefined);
+Template.incidents.showInfoBuilding = function () {
+  if(Session.get("building")!==undefined){
+    return Session.get("building");
+  }else{
+    return false;
+  }
+};
 
 Template.incidents.rendered = function () {
   var mapContainer = document.getElementById("map");

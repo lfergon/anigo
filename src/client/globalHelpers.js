@@ -5,3 +5,11 @@ UI.registerHelper('isActive', function (input) {
     return "";
   }
 });
+
+UI.registerHelper('formatTime', function (time) {
+  return moment(time).format("MMM Do YY");
+});
+
+UI.registerHelper('loadInfoBuilding', function (id) {
+  return Buildings.findOne({_id: id}).neighboorhood;
+});

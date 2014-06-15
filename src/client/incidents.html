@@ -35,23 +35,27 @@
           </div>
         </form>
       </div>
-      <table class="table">
-        <tr>
-          <th>#</th>
-          <th>Description</th>
-          <th>Priority</th>
-          <th>Time</th>
-          <th>Scheduled</th>
-        </tr>
-        {{#each incident}}
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td></td>
-            <td>Issue on Item at {{this.building}}</td>
-            <td></td>
-            <td>{{this.createdAt}}</td>
-            <td>{{this.scheduled}}</td>
+            <th>#</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Time</th>
+            <th>Scheduled</th>
           </tr>
-        {{/each}}
+        </thead>
+        <tbody>
+          {{#each incident}}
+            <tr class="choosenBuilding" id="{{this.building}}">
+              <td></td>
+              <td>Issue on Item at {{loadInfoBuilding this.building}}</td>
+              <td></td>
+              <td>{{formatTime this.createdAt}}</td>
+              <td>{{this.scheduled}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
       </table>
     </div>
     <div class= "col-md-8 incident-detail">
@@ -74,9 +78,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8">
-          <p>Address of house</p>
-        </div>
+        {{#if showInfoBuilding}}
+          <div class="col-md-8">
+            <p>Address of house: {{showInfoBuilding.neighboorhood}}</p>
+          </div>
+        {{else}}
+          <div class="col-md-12">
+            <div class="alert alert-danger">Incident not selected</div>
+          </div>
+        {{/if}}
         <div class="col-md-4">
           <div id="map" class="map map-incident">
             {{changeMap}}
