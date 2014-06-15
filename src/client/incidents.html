@@ -57,7 +57,7 @@
     <div class= "col-md-8 incident-detail">
       <div class="row">
         <div class="col-md-6">
-          <h3>Incident Title</h3>
+          <h3># - Issue on Item at Housename</h3>
         </div>
         <div class="col-md-6">
           <div class="btn-group pull-right" data-toggle="buttons">
@@ -73,15 +73,37 @@
           </div>
         </div>
       </div>
-      <div id="map" class="map map-incident">
-        {{changeMap}}
+      <div class="row">
+        <div class="col-md-8">
+          <p>Address of house</p>
+        </div>
+        <div class="col-md-4">
+          <div id="map" class="map map-incident">
+            {{changeMap}}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-md-12">
-      <div id="dataCharts"></div>
+      <div class="row">
+        <div class="col-md-3">
+          <div id="dataCharts" class="map"></div>
+        </div>
+        <div class="col-md-3 ">
+          <img class="center-block" src="http://lorempixel.com/150/300/abstract" alt="">
+        </div>
+        <div class="col-md-3 ">
+          <img class="center-block" src="http://lorempixel.com/150/300/abstract" alt="">
+        </div>
+        <div class="col-md-3 ">
+          <img class="center-block" src="http://lorempixel.com/150/300/abstract" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-primary">
+            Simulate incidents
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
