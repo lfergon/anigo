@@ -15,13 +15,13 @@ UI.registerHelper('loadInfoBuilding', function (id) {
 });
 
 UI.registerHelper('priorityColour', function(priority) {
-  if (priority === 'low') {
-    return 'text-muted';
-  } else if (priority === 'medium') {
+  if (priority === 'medium') {
     return 'text-info';
   } else if (priority === 'high') {
     return 'text-warning';
   } else if (priority === 'critical') {
     return 'text-danger';
+  } else {
+    return 'text-muted';
   }
 })
