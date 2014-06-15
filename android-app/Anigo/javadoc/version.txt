@@ -1,0 +1,3 @@
+MPA_Beton20_Zip/SDK_TYPE=hybridplus,label=Compile build 1
+MOS: 
+HERE: 

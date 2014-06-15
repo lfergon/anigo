@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Anigo</string>
+    <string name="hello_world"></string>
+    <string name="title_activity_main">Anigo</string>
+    
+    <string name="label_button_stoplivesight">Map</string>
+    <string name="label_button_startlivesight">Navigate</string>
+    <string name="label_button_zoomall">Zoom To All</string>
+    <string name="search_hint">Search...</string>
+    <string name="label_button_onlyfailures">Only Failures</string>
+    <string name="label_button_showall">Show All</string>
+
+</resources>
