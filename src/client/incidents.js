@@ -50,37 +50,30 @@ Template.incidents.rendered = function () {
   var markersContainer = new nokia.maps.map.Container();
   // Create some markers
   var redMarker = new nokia.maps.map.StandardMarker(
-    [52.5044731, 13.3970743],
+    [52.5056495, 13.3954319],
     { 
       text: 1, 
       brush: { color: "red" }
     }
   ),
   greenMarker = new nokia.maps.map.StandardMarker(
-    [52.5496418, 13.3898216],
+    [52.5058259, 13.3961078],
     { 
       text: 2, 
       brush: { color: "green" }
     }
   ),
   blueMarker = new nokia.maps.map.StandardMarker(
-    [52.4857131, 13.4389168],
+    [52.5059499, 13.3964511],
     { 
       text: 3 
     }
   ),
   orangeMarker = new nokia.maps.map.StandardMarker(
-    [52.5026706, 13.4137684],
+    [52.5060479, 13.3953783],
     { 
       text: 4,
       brush: { color: "orange" }
-    }
-  )
-  yellowMarker = new nokia.maps.map.StandardMarker(
-    [52.5514424, 13.3837277],
-    { 
-      text: 4,
-      brush: { color: "yellow" }
     }
   );
     
@@ -89,8 +82,7 @@ Template.incidents.rendered = function () {
     redMarker, 
     greenMarker, 
     blueMarker, 
-    orangeMarker,
-    yellowMarker
+    orangeMarker
   ]);
   markersContainer.addListener(
     nokia.maps.dom.Page.browser.touch ? "tap" : "click",

@@ -83,7 +83,13 @@
       <div class="row">
         {{#if showInfoBuilding}}
           <div class="col-md-8">
-            <p>Address of house: {{showInfoBuilding.neighboorhood}}</p>
+            <div class="alert alert-info">
+              <p>Address of house: {{showInfoBuilding.neighboorhood}}</p>
+              <p>Contact: {{showInfoBuilding.contact}}</p>
+              <p>Email: {{showInfoBuilding.email}}</p>
+              <p>Phone: {{showInfoBuilding.phone}}</p>
+              <p>Description: {{showInfoBuilding.description}}</p>
+            </div>
           </div>
         {{else}}
           <div class="col-md-8">
