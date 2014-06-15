@@ -231,6 +231,9 @@ Template.incidents.rendered = function () {
         color: '#808080'
       }]
     },
+    credits: {
+      enabled: false
+    },
     tooltip: {
       formatter: function() {
         return '<b>'+ this.series.name +'</b><br/>'+
@@ -245,7 +248,7 @@ Template.incidents.rendered = function () {
       enabled: false
     },
     series: [{
-      name: 'Random data',
+      name: 'Sensor data at the moment',
       data: (function() {
         // generate an array of random data
         var data = [], time = (new Date()).getTime(), i;
