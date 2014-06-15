@@ -171,7 +171,7 @@ Template.incidents.rendered = function () {
       type: 'column'
     },
     title: {
-      text: '',
+      text: 'Luminosity last 7 days',
       color: 'black',
     },
     colors: [
@@ -191,7 +191,7 @@ Template.incidents.rendered = function () {
       enabled: false
     },
     series: [{
-      name: 'Temperature',
+      name: 'Luminosity',
       data: [27, 25, 25, 56, 32, 22, 33]
     }]
   });
@@ -256,7 +256,7 @@ Template.incidents.rendered = function () {
       }
     },
     title: {
-      text: 'Live data from Cisco'
+      text: 'Live data from Cisco (Voltage)'
     },
     xAxis: {
       type: 'datetime',
