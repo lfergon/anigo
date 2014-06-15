@@ -24,6 +24,14 @@ Router.map(function () {
   this.route('drones', {
     path: '/drones',
     template: 'drones',
+  }),
+  this.route('inspection', {
+    path: '/inspection',
+    template: 'inspection',
+  }),
+  this.route('market', {
+    path: '/market',
+    template: 'market',
   })
 });
 
