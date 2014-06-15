@@ -5,6 +5,7 @@ Template.incidents.events({
     var incidents = [];
     buildings.forEach(function (build, index) {
       if(index===1){
+        Session.set("building", Buildings.findOne({_id: build._id}));
         incidents.push({position:1, building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
       }
       if(index===2){
@@ -61,7 +62,6 @@ Template.incidents.events({
   }
 });
 
-Session.set("building", undefined);
 Template.incidents.showInfoBuilding = function () {
   if(Session.get("building")!==undefined){
     return Session.get("building");
