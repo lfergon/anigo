@@ -19,18 +19,18 @@
               <option>movement</option>
             </select>
             <select class="form-control">
-              <option>Status</option>
-              <option>open</option>
-              <option>in progress</option>
-              <option>suspended</option>
-              <option>resolved</option>
-            </select>
-            <select class="form-control">
               <option>Priority</option>
               <option>low</option>
               <option>medium</option>
               <option>high</option>
               <option>critical</option>
+            </select>
+            <select class="form-control">
+              <option>Status</option>
+              <option>open</option>
+              <option>in progress</option>
+              <option>suspended</option>
+              <option>resolved</option>
             </select>
           </div>
         </form>
@@ -42,7 +42,7 @@
             <th>Description</th>
             <th>Priority</th>
             <th>Time</th>
-            <th>Scheduled</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
                 <span class="glyphicon glyphicon-warning-sign {{priorityColour this.priority}}"></span>
               </td>
               <td>{{formatTime this.createdAt}}</td>
-              <td>{{this.scheduled}}</td>
+              <td>{{this.status}}</td>
             </tr>
           {{/each}}
         </tbody>

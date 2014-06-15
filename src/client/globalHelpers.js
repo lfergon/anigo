@@ -7,7 +7,7 @@ UI.registerHelper('isActive', function (input) {
 });
 
 UI.registerHelper('formatTime', function (time) {
-  return moment(time).format("MMM Do YY");
+  return moment(time).format("HH:mm DD/MM/YY");
 });
 
 UI.registerHelper('loadInfoBuilding', function (id) {
