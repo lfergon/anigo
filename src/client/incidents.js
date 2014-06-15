@@ -5,7 +5,7 @@ Template.incidents.events({
     var incidents = [];
     buildings.forEach(function (build, index) {
       if(index===1){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
       }
       if(index===2){
         incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
@@ -14,7 +14,7 @@ Template.incidents.events({
         incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
       }
       if(index===4){
-        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Closed", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
+        incidents.push({building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
       }
     });
     incidents.forEach(function (incident) {
