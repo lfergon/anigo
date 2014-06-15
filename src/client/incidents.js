@@ -14,7 +14,6 @@ Template.incidents.events({
     });
   },
   'click .choosenBuilding': function (event) {
-    console.log(event);
     $('.choosenBuilding').removeClass('active');
     $(event.target).parent().addClass('active');
     var idBuilding = $(event.target).closest('tr').attr('id');
@@ -69,6 +68,9 @@ Template.incidents.infoIncident = function () {
     var building = Session.get("building")._id;
     var incident = Incidents.findOne({building: building});
     return incident;
+  }else{
+    var incidentDefault = Incidents.findOne({});
+    return incidentDefault;
   }
 };
 
