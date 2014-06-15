@@ -3,20 +3,11 @@ Template.incidents.events({
     Log.warn("Creating new incident");
     var buildings = Buildings.find({}).fetch();
     var incidents = [];
+    var incid = Incidents.find().fetch().length;
+    var issues = ['Fire', 'Temperature', 'No data'];
     buildings.forEach(function (build, index) {
-      if(index===1){
-        Session.set("building", Buildings.findOne({_id: build._id}));
-        incidents.push({position:1, building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
-      }
-      if(index===2){
-        incidents.push({position: 2, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "medium"});
-      }
-      if(index===3){
-        incidents.push({position: 3, building: build._id, createdAt: moment().valueOf(), status: "Open", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "high"});
-      }
-      if(index===4){
-        incidents.push({position: 4, building: build._id, createdAt: moment().valueOf(), status: "Suspended", delegation: "scheduled", commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "critical"});
-      }
+      Session.set("building", Buildings.findOne({_id: build._id}));
+      incidents.push({position: (incid-(incid-index))+1, item: "#SolarPanel"+(incid-(incid-index))+1, building: build._id, createdAt: moment().valueOf(), status: "In progress", delegation: "scheduled", issue: issues[Math.floor(Math.random() * issues.length)], commentHistory: [{comment: "Closed ticket", createdAt: moment.valueOf()}], priority: "low"});
     });
     incidents.forEach(function (incident) {
       Incidents.insert(incident);
@@ -67,6 +58,14 @@ Template.incidents.showInfoBuilding = function () {
     return Session.get("building");
   }else{
     return false;
+  }
+};
+
+Template.incidents.infoIncident = function () {
+  if(Session.get("building")!==undefined){
+    var building = Session.get("building")._id;
+    var incident = Incidents.findOne({building: building});
+    return incident;
   }
 };
 
