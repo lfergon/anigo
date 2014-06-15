@@ -50,7 +50,9 @@
             <tr class="choosenBuilding" id="{{this.building}}">
               <td></td>
               <td>Issue on Item at {{loadInfoBuilding this.building}}</td>
-              <td></td>
+              <td>
+                <span class="glyphicon glyphicon-warning-sign {{priorityColour this.priority}}"></span>
+              </td>
               <td>{{formatTime this.createdAt}}</td>
               <td>{{this.scheduled}}</td>
             </tr>
@@ -106,10 +108,31 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-right">
-            <button class="btn btn-lg btn-primary">
+            <button class="dispatch-eyes btn btn-lg btn-primary" data-toggle="modal"
+                data-target=".modal-dispatch-eyes">
               Dispatch Eyes
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modal-dispatch-eyes" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">
+            Quadcopter dispatched at 13.00
+          </h4>
+        </div>
+        <div class="modal-body">
+          <p>Some details here.</p>
+          <p>Schedule link, etc.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">OK</button>
         </div>
       </div>
     </div>
