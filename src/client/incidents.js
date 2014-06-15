@@ -50,6 +50,61 @@ Template.incidents.rendered = function () {
     zoomLevel: 10,
     components:[new nokia.maps.map.component.Behavior(), new nokia.maps.map.component.ZoomBar()]
   });
+  // Create an instance of Container to store our markers
+  var markersContainer = new nokia.maps.map.Container();
+  // Create some markers
+  var redMarker = new nokia.maps.map.StandardMarker(
+    [52.5044731, 13.3970743],
+    { 
+      text: 1, 
+      brush: { color: "red" }
+    }
+  ),
+  greenMarker = new nokia.maps.map.StandardMarker(
+    [52.5496418, 13.3898216],
+    { 
+      text: 2, 
+      brush: { color: "green" }
+    }
+  ),
+  blueMarker = new nokia.maps.map.StandardMarker(
+    [52.4857131, 13.4389168],
+    { 
+      text: 3 
+    }
+  ),
+  orangeMarker = new nokia.maps.map.StandardMarker(
+    [52.5026706, 13.4137684],
+    { 
+      text: 4,
+      brush: { color: "orange" }
+    }
+  )
+  yellowMarker = new nokia.maps.map.StandardMarker(
+    [52.5514424, 13.3837277],
+    { 
+      text: 4,
+      brush: { color: "yellow" }
+    }
+  );
+    
+  // We add our newly created markers to a container
+  markersContainer.objects.addAll([
+    redMarker, 
+    greenMarker, 
+    blueMarker, 
+    orangeMarker,
+    yellowMarker
+  ]);
+  markersContainer.addListener(
+    nokia.maps.dom.Page.browser.touch ? "tap" : "click",
+    function (evt) {
+       this.objects.remove(evt.target);
+       this.objects.add(evt.target);
+    }
+  );
+
+  map.objects.add(markersContainer);
   /* The positioning manager is only available if the browser used supports
   * W3C geolocation API
   */
@@ -118,6 +173,69 @@ Template.incidents.rendered = function () {
     series: [{
       name: 'Temperature',
       data: [27, 25, 25, 56, 32, 22, 33]
+    }]
+  });
+  $('#chartLive').highcharts({
+    chart: {
+      type: 'spline',
+      animation: Highcharts.svg, // don't animate in old IE
+      marginRight: 10,
+      events: {
+        load: function() {
+
+          // set up the updating of the chart each second
+          var series = this.series[0];
+          setInterval(function() {
+              var x = (new Date()).getTime(), // current time
+                  y = Math.random();
+              series.addPoint([x, y], true, true);
+          }, 1000);
+        }
+      }
+    },
+    title: {
+      text: 'Live data'
+    },
+    xAxis: {
+      type: 'datetime',
+      tickPixelInterval: 150
+    },
+    yAxis: {
+      title: {
+        text: 'Value'
+      },
+      plotLines: [{
+        value: 0,
+        width: 1,
+        color: '#808080'
+      }]
+    },
+    tooltip: {
+      formatter: function() {
+        return '<b>'+ this.series.name +'</b><br/>'+
+        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+        Highcharts.numberFormat(this.y, 2);
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    exporting: {
+      enabled: false
+    },
+    series: [{
+      name: 'Random data',
+      data: (function() {
+        // generate an array of random data
+        var data = [], time = (new Date()).getTime(), i;
+        for (i = -19; i <= 0; i++) {
+          data.push({
+            x: time + i * 1000,
+            y: Math.random()
+          });
+        }
+        return data;
+      })()
     }]
   });
 };
