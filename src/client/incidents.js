@@ -215,7 +215,7 @@ Template.incidents.rendered = function () {
       }
     },
     title: {
-      text: 'Live data'
+      text: 'Live data from Cisco'
     },
     xAxis: {
       type: 'datetime',
