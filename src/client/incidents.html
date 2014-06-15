@@ -50,7 +50,9 @@
             <tr class="choosenBuilding" id="{{this.building}}">
               <td></td>
               <td>Issue on Item at {{loadInfoBuilding this.building}}</td>
-              <td></td>
+              <td>
+                <span class="glyphicon glyphicon-warning-sign {{priorityColour this.priority}}"></span>
+              </td>
               <td>{{formatTime this.createdAt}}</td>
               <td>{{this.scheduled}}</td>
             </tr>
