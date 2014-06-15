@@ -24,4 +24,4 @@ UI.registerHelper('priorityColour', function(priority) {
   } else {
     return 'text-muted';
   }
-})
+});

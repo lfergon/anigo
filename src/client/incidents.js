@@ -14,6 +14,9 @@ Template.incidents.events({
     });
   },
   'click .choosenBuilding': function (event) {
+    console.log(event);
+    $('.choosenBuilding').removeClass('active');
+    $(event.target).parent().addClass('active');
     var idBuilding = $(event.target).closest('tr').attr('id');
     var buildingSelected = Buildings.findOne({_id: idBuilding});
     Session.set("building", buildingSelected);
@@ -83,37 +86,37 @@ Template.incidents.rendered = function () {
   // Create some markers
   var redMarker = new nokia.maps.map.StandardMarker(
     [52.5056495, 13.3954319],
-    { 
-      text: 1, 
+    {
+      text: 1,
       brush: { color: "red" }
     }
   ),
   greenMarker = new nokia.maps.map.StandardMarker(
     [52.5058259, 13.3961078],
-    { 
-      text: 2, 
+    {
+      text: 2,
       brush: { color: "green" }
     }
   ),
   blueMarker = new nokia.maps.map.StandardMarker(
     [52.5059499, 13.3964511],
-    { 
-      text: 3 
+    {
+      text: 3
     }
   ),
   orangeMarker = new nokia.maps.map.StandardMarker(
     [52.5060479, 13.3953783],
-    { 
+    {
       text: 4,
       brush: { color: "orange" }
     }
   );
-    
+
   // We add our newly created markers to a container
   markersContainer.objects.addAll([
-    redMarker, 
-    greenMarker, 
-    blueMarker, 
+    redMarker,
+    greenMarker,
+    blueMarker,
     orangeMarker
   ]);
   markersContainer.addListener(
@@ -315,4 +318,5 @@ Template.incidents.changeMap = function () {
 
 Template.incidents.incident = function () {
   return Incidents.find({}).fetch();
+  console.log(Session.get("building"));
 };
